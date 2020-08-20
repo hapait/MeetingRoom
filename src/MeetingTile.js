@@ -3,7 +3,7 @@ export default class MeetingTile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            n: 5,
+            n: 1,
             //wid: window.innerWidth,
             //hei: window.innerHeight,
             wid: 0,
@@ -31,7 +31,7 @@ export default class MeetingTile extends React.Component {
     updateWindowDimensions() {
         this.setState({ wid: window.innerWidth, hei: window.innerHeight });
     }
-    calculateTileSize() {
+    calculateTileSize = () => {
         var sx = Math.ceil(Math.sqrt(this.state.n));
         var ro = Math.ceil(this.state.n / sx);
         var co = Math.ceil(this.state.n / ro);
@@ -63,10 +63,15 @@ export default class MeetingTile extends React.Component {
         }
 
     }
+    addVideo = () =>{
+        this.setState({n: this.state.n + 1});
+        this.calculateTileSize();
+    }
     //<video key={i} autoPlay={true} src="videos/sampleVid.mp4" controls={false}></video>
     render() {
         return (
             <div style={{flex: 1}}>
+                <button onClick={()=> {this.addVideo()}}>Add Video</button>
                 {
                     this.state.segments.map((k) =>
                         <div style={{display: "flex", justifyContent:'center', alignItems:'center', flexDirection: "row"}}>
@@ -77,8 +82,8 @@ export default class MeetingTile extends React.Component {
                                     src="videos/sampleVid.mp4"
                                     controls={false}
                                     style={{ 
-                                        width: (window.innerWidth / this.state.row) - 10, 
-                                        height: window.innerHeight / this.state.col - 10,
+                                        width: ((window.innerWidth-10) / this.state.row) - 10, 
+                                        height: ((window.innerHeight-10) / this.state.col) - 10,
                                         alignSelf: "center"
                                     }}
                                 >
