@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import MeetingRoom from './MeetingRoom';
+import DraggableView from './DraggableView';
+//<MeetingRoom />
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MeetingRoom/>
   </React.StrictMode>,
   document.getElementById('root')
 );
