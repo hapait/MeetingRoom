@@ -102,7 +102,8 @@ export default class MeetingTile extends React.Component {
                                     style={{
                                         width: ((window.innerWidth - 10) / this.state.row) - 10,
                                         height: ((window.innerHeight - 10) / this.state.col) - 10,
-                                        alignSelf: "center"
+                                        alignSelf: "center",
+                                        border: "1px solid white"
                                     }}
                                 >
                                 </video>
